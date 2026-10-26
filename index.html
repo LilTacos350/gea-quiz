@@ -225,7 +225,7 @@ body {
 .mode-section { margin-bottom: 20px; }
 .mode-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 8px; }
 .mode-toggle {
-  display: grid; grid-template-columns: 1fr 1fr;
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
   background: var(--surface-2);
   border-radius: var(--radius-sm);
   padding: 4px;
@@ -612,6 +612,132 @@ body {
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
+
+/* ── EXERCISES / METHODS SCREEN ── */
+.exo-topbar {
+  display: flex; align-items: center; gap: 12px;
+  margin: 24px 0 20px;
+}
+.exo-back-btn {
+  background: none; border: 1px solid var(--border); border-radius: 8px;
+  padding: 7px 12px; cursor: pointer; color: var(--muted);
+  font-size: 0.82rem; font-weight: 600; white-space: nowrap;
+}
+.exo-screen-title {
+  font-size: 1.5rem; font-weight: 800; flex: 1;
+}
+.exo-tabs {
+  display: flex; gap: 6px; margin-bottom: 16px;
+}
+.exo-tab {
+  flex: 1; padding: 9px;
+  border: 2px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--surface); color: var(--muted);
+  font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600;
+  cursor: pointer; transition: all 0.12s; text-align: center;
+}
+.exo-tab.active {
+  border-color: var(--math); background: var(--math-bg); color: var(--math);
+}
+.exo-tab.disabled { cursor: default; opacity: 0.45; }
+/* Method cards */
+.methods-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 8px; }
+.method-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow-sm); overflow: hidden;
+}
+.method-card-header {
+  padding: 14px 16px; cursor: pointer;
+  display: flex; align-items: center; gap: 12px;
+  transition: background 0.12s;
+}
+.method-card-header:hover { background: var(--surface-2); }
+.method-badge-wrap { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.method-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.method-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; }
+.method-chevron { font-size: 0.9rem; color: var(--muted); transition: transform 0.2s; }
+.method-card.open .method-chevron { transform: rotate(90deg); }
+.method-body {
+  display: none; padding: 0 16px 14px;
+  font-size: 0.86rem; line-height: 1.6;
+}
+.method-card.open .method-body { display: block; }
+.method-step {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 8px 0; border-bottom: 1px solid var(--border);
+}
+.method-step:last-child { border-bottom: none; }
+.method-step-num {
+  flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; font-weight: 800; color: #fff; margin-top: 1px;
+}
+.method-tip {
+  margin-top: 10px; padding: 8px 12px;
+  border-radius: 8px; font-size: 0.82rem; font-style: italic;
+  color: var(--muted); background: var(--surface-2);
+}
+
+/* Chapter sections */
+.exo-chapter {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow-sm);
+  margin-bottom: 12px; overflow: hidden;
+}
+.exo-chapter-header {
+  padding: 14px 16px; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  transition: background 0.12s; user-select: none;
+}
+.exo-chapter-header:hover { background: var(--surface-2); }
+.exo-chapter-title { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; }
+.exo-chapter-meta { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+.exo-chevron { font-size: 0.9rem; color: var(--muted); transition: transform 0.2s; }
+.exo-chapter.open .exo-chevron { transform: rotate(90deg); }
+.exo-chapter-body { display: none; padding: 0 16px 14px; }
+.exo-chapter.open .exo-chapter-body { display: block; }
+.exo-videos { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.exo-video-link {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 6px 10px; background: var(--math-bg);
+  border: 1px solid var(--math-border); color: var(--math);
+  border-radius: 8px; font-size: 0.78rem; font-weight: 600;
+  text-decoration: none; transition: opacity 0.12s;
+}
+.exo-video-link:hover { opacity: 0.75; }
+
+/* Exercise cards */
+.exo-card {
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  margin-bottom: 10px; overflow: hidden;
+}
+.exo-card-header {
+  padding: 10px 14px; display: flex; align-items: center;
+  justify-content: space-between; gap: 10px; background: var(--surface-2);
+}
+.exo-card-num { font-family: 'Syne', sans-serif; font-size: 0.83rem; font-weight: 700; color: var(--math); }
+.exo-toggle-btn {
+  flex-shrink: 0; font-size: 0.75rem; font-weight: 600;
+  padding: 4px 10px; border: 1px solid var(--math-border);
+  background: var(--math-bg); color: var(--math);
+  border-radius: 6px; cursor: pointer; transition: opacity 0.12s;
+}
+.exo-toggle-btn:hover { opacity: 0.75; }
+.exo-enonce {
+  padding: 12px 14px; font-size: 0.875rem; line-height: 1.65;
+  background: var(--surface);
+}
+.exo-correction {
+  display: none; padding: 12px 14px;
+  background: var(--ok-bg); border-top: 1px solid var(--ok-border);
+  font-size: 0.855rem; line-height: 1.6;
+  animation: fadeUp 0.2s ease both;
+}
+.exo-correction.show { display: block; }
+.exo-correction-label {
+  font-weight: 700; font-size: 0.75rem; text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--ok); margin-bottom: 8px;
+}
 </style>
 
 <!-- ─── START SCREEN ─── -->
@@ -664,6 +790,9 @@ body {
       </button>
       <button id="mode-fc" class="mode-btn" onclick="setMode('flashcard')">
         🔄 Flashcards
+      </button>
+      <button id="mode-exo" class="mode-btn" onclick="setMode('exercices')">
+        📝 Exercices
       </button>
     </div>
   </div>
@@ -742,6 +871,342 @@ body {
   <div class="results-actions">
     <button class="results-btn primary" onclick="replayQuiz()">↺ Rejouer (mêmes options)</button>
     <button class="results-btn secondary" onclick="goHome()">← Changer les options</button>
+  </div>
+</div>
+
+<!-- ─── EXERCISES + METHODS SCREEN ─── -->
+<div id="screen-exercises" class="screen">
+  <div class="exo-topbar">
+    <button onclick="goHome()" class="exo-back-btn">← Menu</button>
+    <h2 class="exo-screen-title syne">Exercices &amp; Méthodes</h2>
+  </div>
+
+  <!-- Tabs -->
+  <div class="exo-tabs">
+    <button class="exo-tab active" id="tab-methodes" onclick="switchExoTab('methodes')">🧠 Méthodes</button>
+    <button class="exo-tab" id="tab-exos" onclick="switchExoTab('exos')">📐 Exercices maths</button>
+  </div>
+
+  <!-- MÉTHODES panel -->
+  <div id="panel-methodes">
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:14px">Une méthode recommandée par matière selon le coefficient.</p>
+    <div class="methods-grid">
+
+      <!-- DROIT coef 21 -->
+      <div class="method-card open" id="mcard-droit">
+        <div class="method-card-header" onclick="toggleMethod('droit')">
+          <span class="subj-badge droit" style="flex-shrink:0">⚖️ Droit</span>
+          <div class="method-badge-wrap">
+            <span class="method-label">coef 21 ★ — priorité maximale</span>
+            <span class="method-name">📄 Méthode de la feuille blanche</span>
+          </div>
+          <span class="method-chevron">›</span>
+        </div>
+        <div class="method-body">
+          <div class="method-step">
+            <div class="method-step-num" style="background:var(--droit)">1</div>
+            <div><strong>Mémorise ton cours — 3 min</strong><br>Relis une fois ton cours ou tes fiches, concentré·e.</div>
+          </div>
+          <div class="method-step">
+            <div class="method-step-num" style="background:var(--droit)">2</div>
+            <div><strong>Feuille blanche — 2 min</strong><br>Ferme tout. Réécris un maximum de définitions, articles, exemples sans regarder.</div>
+          </div>
+          <div class="method-step">
+            <div class="method-step-num" style="background:var(--droit)">3</div>
+            <div><strong>Corrige &amp; comble les lacunes</strong><br>Compare ta feuille au cours. Marque en rouge ce qui manque.</div>
+          </div>
+          <div class="method-step">
+            <div class="method-step-num" style="background:var(--droit)">4</div>
+            <div><strong>Répète 6-7 fois</strong><br>Chaque cycle comble un peu plus. C'est la répétition espacée qui ancre.</div>
+          </div>
+          <div class="method-tip">💡 Idéale pour le droit : mémorisation de définitions, articles, jurisprudences et distinctions de notions.</div>
+        </div>
+      </div>
+
+      <!-- ÉCONOMIE coef 16 -->
+      <div class="method-card" id="mcard-eco">
+        <div class="method-card-header" onclick="toggleMethod('eco')">
+          <span class="subj-badge eco" style="flex-shrink:0">📊 Économie</span>
+          <div class="method-badge-wrap">
+            <span class="method-label">coef 16</span>
+            <span class="method-name">🎤 Méthode Feynman</span>
+          </div>
+          <span class="method-chevron">›</span>
+        </div>
+        <div class="method-body">
+          <div class="method-step">
+            <div class="method-step-num" style="background:var(--eco)">1</div>
+            <div><strong>Relis ton cours — 3 min</strong><br>Un chapitre à la fois. Note les concepts-clés que tu dois retenir.</div>
+          </div>
+          <div class="method-step">
+            <div class="method-step-num" style="background:var(--eco)">2</div>
+            <div><strong>Explique à voix haute — 3 min</strong><br>Imagine que tu l'enseignes à quelqu'un. Utilise tes propres mots, donne des exemples.</div>
+          </div>
+          <div class="method-step">
+            <div class="method-step-num" style="background:var(--eco)">3</div>
+            <div><strong>Identifie les trous — 3 min</strong><br>Là où tu as hésité ou bloqué = la notion mal comprise. Reviens précisément à cette partie.</div>
+          </div>
+          <div class="method-step">
+            <div class="method-step-num" style="background:var(--eco)">4</div>
+            <div><strong>Simplifie encore</strong><br>Si tu ne peux pas expliquer simplement, tu ne comprends pas encore vraiment.</div>
+          </div>
+          <div class="method-tip">💡 Idéale pour l'éco : comprendre les mécanismes (PIB, cycles, politiques), les courants et les modèles.</div>
+        </div>
+      </div>
+
+      <!-- COMMUNICATION coef 15 -->
+      <div class="method-card" id="mcard-comm">
+        <div class="method-card-header" onclick="toggleMethod('comm')">
+          <span class="subj-badge comm" style="flex-shrink:0">💬 Communication</span>
+          <div class="method-badge-wrap">
+            <span class="method-label">coef 15</span>
+            <span class="method-name">🗺️ Carte mentale + entraînement</span>
+          </div>
+          <span class="method-chevron">›</span>
+        </div>
+        <div class="method-body">
+          <div class="method-step">
+            <div class="method-step-num" style="background:var(--comm)">1</div>
+            <div><strong>Crée ta carte mentale</strong><br>Centre = chapitre. Branches = grandes notions. Feuilles = définitions, exemples. Colorie, dessine.</div>
+          </div>
+          <div class="method-step">
+            <div class="method-step-num" style="background:var(--comm)">2</div>
+            <div><strong>Identifie les parties faibles</strong><br>Les nœuds où ta carte est vide = les zones à réviser. Note-les.</div>
+          </div>
+          <div class="method-step">
+            <div class="method-step-num" style="background:var(--comm)">3</div>
+            <div><strong>Entraîne-toi sur les lacunes</strong><br>Flashcards sur ce quiz (filtre Communication), exercices ciblés, questions orales.</div>
+          </div>
+          <div class="method-step">
+            <div class="method-step-num" style="background:var(--comm)">4</div>
+            <div><strong>Refais la carte de mémoire</strong><br>Cache l'originale. Redessine ta carte entièrement. Compare et complète.</div>
+          </div>
+          <div class="method-tip">💡 Idéale pour la comm : structurer modèles, plans, schémas (ex : schéma de la communication, types de messages).</div>
+        </div>
+      </div>
+
+      <!-- MATHS coef 15 -->
+      <div class="method-card" id="mcard-math">
+        <div class="method-card-header" onclick="toggleMethod('math')">
+          <span class="subj-badge math" style="flex-shrink:0">📐 Maths</span>
+          <div class="method-badge-wrap">
+            <span class="method-label">coef 15</span>
+            <span class="method-name">🎯 Échec volontaire assisté par IA</span>
+          </div>
+          <span class="method-chevron">›</span>
+        </div>
+        <div class="method-body">
+          <div class="method-step">
+            <div class="method-step-num" style="background:var(--math)">1</div>
+            <div><strong>Lance-toi sur des exercices — 15 min</strong><br>Commence par les exercices ci-dessous, chapitre par chapitre. Va jusqu'à échouer.</div>
+          </div>
+          <div class="method-step">
+            <div class="method-step-num" style="background:var(--math)">2</div>
+            <div><strong>Demande à l'IA quand tu bloques</strong><br>Claude (ou ChatGPT) peut t'expliquer la notion étape par étape, puis te donner des variantes.</div>
+          </div>
+          <div class="method-step">
+            <div class="method-step-num" style="background:var(--math)">3</div>
+            <div><strong>Refais l'exercice seul·e</strong><br>Après l'explication, refais un exercice similaire sans aide. Vérifie chaque étape.</div>
+          </div>
+          <div class="method-step">
+            <div class="method-step-num" style="background:var(--math)">4</div>
+            <div><strong>Continue jusqu'au prochain blocage</strong><br>C'est la résistance qui crée la mémorisation. L'effort difficile &gt; la relecture passive.</div>
+          </div>
+          <div class="method-tip">💡 Idéale pour les maths : les formules s'ancrent en pratiquant, pas en lisant. Vise 20 min/jour minimum.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- EXERCICES panel (Math TDs) -->
+  <div id="panel-exos" style="display:none">
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:14px">Exercices des TDs de maths — clique sur une correction pour l'afficher.</p>
+
+    <!-- TD1 -->
+    <div class="exo-chapter open" id="chap-td1">
+      <div class="exo-chapter-header" onclick="toggleChapter('td1')">
+        <div>
+          <div class="exo-chapter-title">TD 1 — Taux d'évolution</div>
+          <div class="exo-chapter-meta">Pourcentages · CM · Évolutions successives &amp; réciproques</div>
+        </div>
+        <span class="exo-chevron">›</span>
+      </div>
+      <div class="exo-chapter-body">
+        <div class="exo-videos">
+          <a href="https://www.youtube.com/watch?v=-5QmcMuzy5I" target="_blank" class="exo-video-link">▶ Coefficient multiplicateur</a>
+          <a href="https://www.youtube.com/watch?v=Ko6F9WaIdwo" target="_blank" class="exo-video-link">▶ Taux global &amp; réciproque</a>
+          <a href="https://www.youtube.com/watch?v=5L0wdC2pr0U" target="_blank" class="exo-video-link">▶ Évolutions successives</a>
+        </div>
+
+        <div class="exo-card">
+          <div class="exo-card-header">
+            <span class="exo-card-num">Exercice 1 — Marges commerciales</span>
+            <button class="exo-toggle-btn" onclick="toggleCorr(this)">Correction</button>
+          </div>
+          <div class="exo-enonce">Un commerçant revend un article <strong>800 € HT</strong>. Il réalise une marge commerciale de <strong>20 % sur le prix de vente HT</strong>. La TVA est de 20 %.<br><br>1. Calculer le montant de la marge (€).<br>2. Calculer le prix d'achat HT.<br>3. Calculer le prix de vente TTC.</div>
+          <div class="exo-correction">
+            <div class="exo-correction-label">✓ Correction</div>
+            1. Marge = 20 % × 800 = <strong>160 €</strong><br>
+            2. PA HT = 800 − 160 = <strong>640 €</strong><br>
+            3. PV TTC = 800 × 1,20 = <strong>960 €</strong>
+          </div>
+        </div>
+
+        <div class="exo-card">
+          <div class="exo-card-header">
+            <span class="exo-card-num">Exercice 3 — Évolutions successives</span>
+            <button class="exo-toggle-btn" onclick="toggleCorr(this)">Correction</button>
+          </div>
+          <div class="exo-enonce">Un article a subi deux hausses successives de <strong>2 %</strong> puis <strong>2,5 %</strong>. Son prix final est <strong>543,66 €</strong>.<br><br>1. Calculer le CM global et le taux d'évolution global.<br>2. Retrouver le prix initial.<br>3. Calculer le taux d'évolution réciproque.</div>
+          <div class="exo-correction">
+            <div class="exo-correction-label">✓ Correction</div>
+            1. CM = 1,02 × 1,025 = <strong>1,0455</strong> → taux global = <strong>+4,55 %</strong><br>
+            2. Prix initial = 543,66 ÷ 1,0455 = <strong>520,00 €</strong><br>
+            3. CM réciproque = 1 ÷ 1,0455 ≈ 0,9565 → taux réciproque ≈ <strong>−4,35 %</strong>
+          </div>
+        </div>
+
+        <div class="exo-card">
+          <div class="exo-card-header">
+            <span class="exo-card-num">Exercice 4 — Taux moyen annuel</span>
+            <button class="exo-toggle-btn" onclick="toggleCorr(this)">Correction</button>
+          </div>
+          <div class="exo-enonce">Le CA d'une entreprise est passé de <strong>300 000 €</strong> en 2015 à <strong>514 000 €</strong> en 2020.<br><br>1. Calculer le taux d'évolution global (2015 → 2020).<br>2. Calculer le taux d'évolution annuel moyen.<br>3. Estimer le CA en 2021 si la tendance se maintient.</div>
+          <div class="exo-correction">
+            <div class="exo-correction-label">✓ Correction</div>
+            1. CM = 514 000 / 300 000 ≈ 1,7133 → taux global ≈ <strong>+71,33 %</strong><br>
+            2. CM annuel = 1,7133^(1/5) ≈ 1,1138 → taux moyen ≈ <strong>+11,38 %/an</strong><br>
+            3. CA 2021 ≈ 514 000 × 1,1138 ≈ <strong>572 700 €</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TD2 -->
+    <div class="exo-chapter" id="chap-td2">
+      <div class="exo-chapter-header" onclick="toggleChapter('td2')">
+        <div>
+          <div class="exo-chapter-title">TD 2 — Suites numériques</div>
+          <div class="exo-chapter-meta">Suites arithmétiques · Suites géométriques · Sommes</div>
+        </div>
+        <span class="exo-chevron">›</span>
+      </div>
+      <div class="exo-chapter-body">
+        <div class="exo-videos">
+          <a href="https://www.youtube.com/watch?v=05UHsy9G4M4" target="_blank" class="exo-video-link">▶ Cours suites arith. &amp; géo.</a>
+          <a href="https://www.youtube.com/watch?v=pHq6oClOylU" target="_blank" class="exo-video-link">▶ Reconnaitre le type de suite</a>
+        </div>
+
+        <div class="exo-card">
+          <div class="exo-card-header">
+            <span class="exo-card-num">Exercice 1 — Suite arithmétique (population)</span>
+            <button class="exo-toggle-btn" onclick="toggleCorr(this)">Correction</button>
+          </div>
+          <div class="exo-enonce">Une ville compte <strong>15 000 habitants</strong> en 2010. Sa population augmente de <strong>600 habitants par an</strong>.<br><br>1. Donner l'expression de u_n (population n années après 2010).<br>2. Calculer la population en 2025.<br>3. En quelle année la population dépassera-t-elle 24 000 habitants ?</div>
+          <div class="exo-correction">
+            <div class="exo-correction-label">✓ Correction</div>
+            1. u_n = 15 000 + 600n (suite arith., r = 600)<br>
+            2. n = 15 : u₁₅ = 15 000 + 9 000 = <strong>24 000 hab</strong><br>
+            3. 15 000 + 600n &gt; 24 000 ⟹ n &gt; 15 → à partir de n = 16, soit en <strong>2026</strong>
+          </div>
+        </div>
+
+        <div class="exo-card">
+          <div class="exo-card-header">
+            <span class="exo-card-num">Exercice 2 — Suite géométrique (production)</span>
+            <button class="exo-toggle-btn" onclick="toggleCorr(this)">Correction</button>
+          </div>
+          <div class="exo-enonce">Une usine produit <strong>100 000 unités</strong> en 2015. Sa production diminue de <strong>3 % par an</strong>.<br><br>1. Donner l'expression de v_n (production n années après 2015).<br>2. Calculer la production en 2020.<br>3. Calculer la production totale de 2015 à 2019 (5 premières années).</div>
+          <div class="exo-correction">
+            <div class="exo-correction-label">✓ Correction</div>
+            1. v_n = 100 000 × 0,97ⁿ (suite géo., q = 0,97)<br>
+            2. n = 5 : v₅ = 100 000 × 0,97⁵ ≈ <strong>85 873 unités</strong><br>
+            3. S₅ = 100 000 × (1 − 0,97⁵) / 0,03 ≈ <strong>471 000 unités</strong>
+          </div>
+        </div>
+
+        <div class="exo-card">
+          <div class="exo-card-header">
+            <span class="exo-card-num">Exercice 3 — Comparaison de contrats</span>
+            <button class="exo-toggle-btn" onclick="toggleCorr(this)">Correction</button>
+          </div>
+          <div class="exo-enonce">Une entreprise peut louer une machine avec 2 contrats :<br>• <strong>Contrat A</strong> : loyer de 10 000 € la 1re année, <strong>+500 €/an</strong> (arith.)<br>• <strong>Contrat B</strong> : loyer de 10 000 € la 1re année, <strong>+4 %/an</strong> (géo.)<br><br>1. Exprimer le loyer de l'année n pour chaque contrat (n = 0 = 1re année).<br>2. Calculer le coût total sur 10 ans pour chaque contrat.<br>3. Quel contrat est le plus avantageux sur 10 ans ?</div>
+          <div class="exo-correction">
+            <div class="exo-correction-label">✓ Correction</div>
+            1. A: aₙ = 10 000 + 500n &nbsp;|&nbsp; B: bₙ = 10 000 × 1,04ⁿ<br>
+            2. S_A = 10 × 10 000 + 500 × 45 = <strong>122 500 €</strong><br>
+            &nbsp;&nbsp;&nbsp;S_B = 10 000 × (1,04¹⁰ − 1) / 0,04 ≈ <strong>120 061 €</strong><br>
+            3. → <strong>Contrat B légèrement moins cher</strong> sur 10 ans
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TD3 -->
+    <div class="exo-chapter" id="chap-td3">
+      <div class="exo-chapter-header" onclick="toggleChapter('td3')">
+        <div>
+          <div class="exo-chapter-title">TD 3 — Fonctions &amp; applications économiques</div>
+          <div class="exo-chapter-meta">Dérivées · Variations · Optimisation · Coûts &amp; Profit</div>
+        </div>
+        <span class="exo-chevron">›</span>
+      </div>
+      <div class="exo-chapter-body">
+        <div class="exo-videos">
+          <a href="https://www.youtube.com/watch?v=uMSNllPBFhQ" target="_blank" class="exo-video-link">▶ Cours dérivation</a>
+          <a href="https://www.youtube.com/watch?v=pXfkqyu-R94" target="_blank" class="exo-video-link">▶ Dérivation &amp; optimisation</a>
+          <a href="https://www.youtube.com/watch?v=v8kMykeogis" target="_blank" class="exo-video-link">▶ Variations via la dérivée</a>
+        </div>
+
+        <div class="exo-card">
+          <div class="exo-card-header">
+            <span class="exo-card-num">Exercice 1 — Extrema d'une fonction</span>
+            <button class="exo-toggle-btn" onclick="toggleCorr(this)">Correction</button>
+          </div>
+          <div class="exo-enonce">Soit <strong>f(x) = x⁵ − 20x + 3</strong>.<br><br>1. Calculer f'(x).<br>2. Résoudre f'(x) = 0.<br>3. Dresser le tableau de variations et déterminer les extrema locaux.</div>
+          <div class="exo-correction">
+            <div class="exo-correction-label">✓ Correction</div>
+            1. f'(x) = <strong>5x⁴ − 20</strong><br>
+            2. 5x⁴ − 20 = 0 ⟹ x⁴ = 4 ⟹ x = <strong>±√2 ≈ ±1,41</strong><br>
+            3. f croissante sur ]−∞ ; −√2[ et ]√2 ; +∞[, décroissante sur ]−√2 ; √2[<br>
+            &nbsp;&nbsp;&nbsp;Max local en x = −√2 : f(−√2) = <strong>16√2 + 3 ≈ 25,63</strong><br>
+            &nbsp;&nbsp;&nbsp;Min local en x = √2 : f(√2) = <strong>−16√2 + 3 ≈ −19,63</strong>
+          </div>
+        </div>
+
+        <div class="exo-card">
+          <div class="exo-card-header">
+            <span class="exo-card-num">Exercice 2 — Coût moyen minimum</span>
+            <button class="exo-toggle-btn" onclick="toggleCorr(this)">Correction</button>
+          </div>
+          <div class="exo-enonce"><strong>CT(q) = 2q³ − q² + 4q</strong> (en k€, q en milliers d'unités).<br><br>1. Calculer le coût marginal Cm(q) = CT'(q).<br>2. Exprimer le coût moyen CM(q) = CT(q)/q.<br>3. Trouver la quantité q qui minimise CM(q).</div>
+          <div class="exo-correction">
+            <div class="exo-correction-label">✓ Correction</div>
+            1. Cm(q) = <strong>6q² − 2q + 4</strong><br>
+            2. CM(q) = <strong>2q² − q + 4</strong><br>
+            3. CM'(q) = 4q − 1 = 0 ⟹ q = <strong>0,25 k unités</strong><br>
+            &nbsp;&nbsp;&nbsp;CM''(0,25) = 4 &gt; 0 → minimum | CM(0,25) = <strong>3,875 k€</strong>
+          </div>
+        </div>
+
+        <div class="exo-card">
+          <div class="exo-card-header">
+            <span class="exo-card-num">Exercice 3 — Profit maximum</span>
+            <button class="exo-toggle-btn" onclick="toggleCorr(this)">Correction</button>
+          </div>
+          <div class="exo-enonce">Demande : <strong>q − 102 + 2p = 0</strong>. Coût moyen : <strong>CM(q) = (4/3)q² − 8q + 57 + 2/q</strong>.<br><br>1. Exprimer p en fonction de q.<br>2. Calculer RT(q) et la recette marginale Rm(q).<br>3. Calculer CT(q) et le coût marginal Cm(q).<br>4. Trouver la quantité qui maximise le profit (Rm = Cm).</div>
+          <div class="exo-correction">
+            <div class="exo-correction-label">✓ Correction</div>
+            1. p = (102 − q) / 2 = <strong>51 − q/2</strong><br>
+            2. RT = 51q − q²/2 &nbsp;|&nbsp; Rm = <strong>51 − q</strong><br>
+            3. CT = (4/3)q³ − 8q² + 57q + 2 &nbsp;|&nbsp; Cm = <strong>4q² − 16q + 57</strong><br>
+            4. Rm = Cm : 51 − q = 4q² − 16q + 57 ⟹ 4q² − 15q + 6 = 0<br>
+            &nbsp;&nbsp;&nbsp;Δ = 129 → q ≈ 0,46 (min) ou q ≈ <strong>3,30 (max du profit) ✓</strong>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1067,6 +1532,7 @@ function setMode(m) {
   state.mode = m;
   document.getElementById('mode-qcm').classList.toggle('active', m === 'qcm');
   document.getElementById('mode-fc').classList.toggle('active', m === 'flashcard');
+  document.getElementById('mode-exo').classList.toggle('active', m === 'exercices');
 }
 
 /* ── SHUFFLE ── */
@@ -1081,6 +1547,7 @@ function shuffle(arr) {
 
 /* ── START ── */
 function startQuiz() {
+  if (state.mode === 'exercices') { showScreen('screen-exercises'); return; }
   const all = state.selectedSubjects.includes('all');
   let pool = all ? ALL_QUESTIONS : ALL_QUESTIONS.filter(q => state.selectedSubjects.includes(q.subject));
   state.questions = shuffle(pool);
@@ -1303,6 +1770,30 @@ function showResults() {
 /* ── REPLAY / HOME ── */
 function replayQuiz() { startQuiz(); }
 function goHome()     { showScreen('screen-start'); }
+
+/* ── EXERCISES ── */
+function switchExoTab(tab) {
+  const isExos = tab === 'exos';
+  document.getElementById('panel-methodes').style.display = isExos ? 'none' : 'block';
+  document.getElementById('panel-exos').style.display = isExos ? 'block' : 'none';
+  document.getElementById('tab-methodes').classList.toggle('active', !isExos);
+  document.getElementById('tab-exos').classList.toggle('active', isExos);
+}
+
+function toggleChapter(id) {
+  document.getElementById('chap-' + id).classList.toggle('open');
+}
+
+function toggleMethod(id) {
+  document.getElementById('mcard-' + id).classList.toggle('open');
+}
+
+function toggleCorr(btn) {
+  const corrEl = btn.closest('.exo-card').querySelector('.exo-correction');
+  const isOpen = corrEl.classList.contains('show');
+  corrEl.classList.toggle('show');
+  btn.textContent = isOpen ? 'Correction' : 'Masquer';
+}
 
 /* ── SCREEN TRANSITION ── */
 function showScreen(id) {
