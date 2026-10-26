@@ -751,6 +751,42 @@ body {
   padding: 4px 10px; border-radius: 6px; margin-bottom: 10px;
   background: var(--math-bg); color: var(--math); border: 1px solid var(--math-border);
 }
+
+/* ── LEÇON ── */
+.lecon-block {
+  border: 1px solid var(--math-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.lecon-block-title {
+  padding: 8px 12px;
+  background: var(--math-bg);
+  border-bottom: 1px solid var(--math-border);
+  font-family: 'Syne', sans-serif;
+  font-size: 0.75rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.07em;
+  color: var(--math);
+}
+.lecon-formulas {
+  padding: 8px 12px;
+  display: flex; flex-direction: column; gap: 5px;
+  background: var(--surface);
+}
+.lecon-formula-row {
+  display: flex; align-items: baseline; gap: 10px;
+}
+.lecon-formula-name {
+  font-size: 0.72rem; font-weight: 600; color: var(--muted);
+  min-width: 110px; flex-shrink: 0; line-height: 1.4;
+}
+.lecon-formula-val {
+  font-weight: 700; color: var(--math);
+  background: var(--math-bg);
+  padding: 3px 9px; border-radius: 6px;
+  border: 1px solid var(--math-border);
+  font-size: 0.83rem; line-height: 1.5; flex: 1;
+}
 </style>
 
 <!-- ─── START SCREEN ─── -->
@@ -758,7 +794,7 @@ body {
   <div class="start-header">
     <div class="start-eyebrow">BUT GEA · Semestre 1</div>
     <h1 class="start-title syne">Quiz de<br>révision</h1>
-    <p class="start-sub" id="start-sub">51 questions · 4 matières</p>
+    <p class="start-sub" id="start-sub">63 questions · 4 matières</p>
   </div>
 
   <div class="card-surface" id="subjects-card">
@@ -789,7 +825,7 @@ body {
       <div id="card-math" class="subject-card" onclick="toggleSubject('math')">
         <div class="subject-card-icon">📐</div>
         <div class="subject-card-label">Outils Mathématiques</div>
-        <div class="subject-card-count">15 questions</div>
+        <div class="subject-card-count">27 questions</div>
         <div class="subject-card-coef math">coef 15</div>
       </div>
     </div>
@@ -897,7 +933,8 @@ body {
   <!-- Tabs -->
   <div class="exo-tabs">
     <button class="exo-tab active" id="tab-methodes" onclick="switchExoTab('methodes')">🧠 Méthodes</button>
-    <button class="exo-tab" id="tab-exos" onclick="switchExoTab('exos')">📐 Exercices TDs</button>
+    <button class="exo-tab" id="tab-lecon" onclick="switchExoTab('lecon')">📖 Leçon</button>
+    <button class="exo-tab" id="tab-exos" onclick="switchExoTab('exos')">📐 TDs</button>
   </div>
 
   <!-- MÉTHODES panel -->
@@ -1030,6 +1067,180 @@ body {
       </div>
 
     </div>
+  </div>
+
+  <!-- LEÇON panel -->
+  <div id="panel-lecon" style="display:none">
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:14px">Toutes les formules et relations à maîtriser — savoir les énoncer et les appliquer.</p>
+
+    <!-- TD1 -->
+    <div class="exo-chapter open" id="lecon-td1">
+      <div class="exo-chapter-header" onclick="toggleLecon('td1')">
+        <div>
+          <div class="exo-chapter-title">TD 1 — Taux d'évolution</div>
+          <div class="exo-chapter-meta">CM · Taux · Marges · Évolutions · Taux moyen</div>
+        </div>
+        <span class="exo-chevron">›</span>
+      </div>
+      <div class="exo-chapter-body">
+
+        <div class="lecon-block">
+          <div class="lecon-block-title">CM ↔ Taux</div>
+          <div class="lecon-formulas">
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Taux → CM</span><span class="lecon-formula-val">CM = 1 + t</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">CM → Taux</span><span class="lecon-formula-val">t = CM − 1</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Hausse</span><span class="lecon-formula-val">t &gt; 0 ⟹ CM &gt; 1 &nbsp;|&nbsp; ex : +15 % → CM = 1,15</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Baisse</span><span class="lecon-formula-val">t &lt; 0 ⟹ CM &lt; 1 &nbsp;|&nbsp; ex : −20 % → CM = 0,80</span></div>
+          </div>
+        </div>
+
+        <div class="lecon-block">
+          <div class="lecon-block-title">Marge sur PV (taux appliqué au prix de vente)</div>
+          <div class="lecon-formulas">
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Marge</span><span class="lecon-formula-val">Marge = T% × PV</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Prix d'achat</span><span class="lecon-formula-val">PA = PV − Marge = PV × (1 − T%)</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">PV TTC</span><span class="lecon-formula-val">PV TTC = PV HT × (1 + taux TVA)</span></div>
+          </div>
+        </div>
+
+        <div class="lecon-block">
+          <div class="lecon-block-title">Marge sur PA (taux appliqué au prix d'achat)</div>
+          <div class="lecon-formulas">
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Marge</span><span class="lecon-formula-val">Marge = T% × PA</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Prix de vente</span><span class="lecon-formula-val">PV = PA + Marge = PA × (1 + T%)</span></div>
+          </div>
+        </div>
+
+        <div class="lecon-block">
+          <div class="lecon-block-title">Évolutions successives</div>
+          <div class="lecon-formulas">
+            <div class="lecon-formula-row"><span class="lecon-formula-name">CM global</span><span class="lecon-formula-val">CM_global = CM₁ × CM₂ × … × CMₙ</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Taux global</span><span class="lecon-formula-val">t_global = CM_global − 1</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">⚠️ Piège</span><span class="lecon-formula-val">Les taux ne s'additionnent pas ! &nbsp;+5 % puis +10 % ≠ +15 %</span></div>
+          </div>
+        </div>
+
+        <div class="lecon-block">
+          <div class="lecon-block-title">Taux réciproque</div>
+          <div class="lecon-formulas">
+            <div class="lecon-formula-row"><span class="lecon-formula-name">CM réciproque</span><span class="lecon-formula-val">CM_réc = 1 / CM_global</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Taux réciproque</span><span class="lecon-formula-val">t_réc = 1 / CM_global − 1</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Exemple</span><span class="lecon-formula-val">CM = 1,20 → t_réc = 1/1,20 − 1 ≈ −16,67 %</span></div>
+          </div>
+        </div>
+
+        <div class="lecon-block">
+          <div class="lecon-block-title">Taux moyen annuel</div>
+          <div class="lecon-formulas">
+            <div class="lecon-formula-row"><span class="lecon-formula-name">CM global</span><span class="lecon-formula-val">CM_global = VF / VI</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">CM annuel</span><span class="lecon-formula-val">CM_moyen = CM_global^(1/n) = ⁿ√CM_global</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Taux annuel</span><span class="lecon-formula-val">t_moyen = CM_moyen − 1</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Projection</span><span class="lecon-formula-val">Valeur suivante = Dernière valeur × CM_moyen</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TD2 -->
+    <div class="exo-chapter" id="lecon-td2">
+      <div class="exo-chapter-header" onclick="toggleLecon('td2')">
+        <div>
+          <div class="exo-chapter-title">TD 2 — Suites numériques</div>
+          <div class="exo-chapter-meta">Arithmétique · Géométrique · Sommes</div>
+        </div>
+        <span class="exo-chevron">›</span>
+      </div>
+      <div class="exo-chapter-body">
+
+        <div class="lecon-block">
+          <div class="lecon-block-title">Identifier le type de suite</div>
+          <div class="lecon-formulas">
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Arithmétique</span><span class="lecon-formula-val">différence constante : uₙ₊₁ − uₙ = r (raison)</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Géométrique</span><span class="lecon-formula-val">rapport constant : vₙ₊₁ / vₙ = q (raison)</span></div>
+          </div>
+        </div>
+
+        <div class="lecon-block">
+          <div class="lecon-block-title">Suite arithmétique</div>
+          <div class="lecon-formulas">
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Terme général</span><span class="lecon-formula-val">uₙ = u₀ + n × r</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Raison</span><span class="lecon-formula-val">r = uₙ₊₁ − uₙ (différence constante)</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Somme (n termes)</span><span class="lecon-formula-val">Sₙ = n × (u₀ + uₙ₋₁) / 2</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Résoudre uₙ &gt; seuil</span><span class="lecon-formula-val">u₀ + n×r &gt; seuil ⟹ n &gt; (seuil − u₀) / r</span></div>
+          </div>
+        </div>
+
+        <div class="lecon-block">
+          <div class="lecon-block-title">Suite géométrique</div>
+          <div class="lecon-formulas">
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Terme général</span><span class="lecon-formula-val">vₙ = v₀ × qⁿ</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Raison</span><span class="lecon-formula-val">q = vₙ₊₁ / vₙ (rapport constant)</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Somme (n termes)</span><span class="lecon-formula-val">Sₙ = v₀ × (1 − qⁿ) / (1 − q) &nbsp;avec q ≠ 1</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Lien avec CM</span><span class="lecon-formula-val">croissance de x %/an → q = 1 + x % (suite géo.)</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TD3 -->
+    <div class="exo-chapter" id="lecon-td3">
+      <div class="exo-chapter-header" onclick="toggleLecon('td3')">
+        <div>
+          <div class="exo-chapter-title">TD 3 — Fonctions &amp; optimisation</div>
+          <div class="exo-chapter-meta">Dérivées · Variations · Coûts · Profit</div>
+        </div>
+        <span class="exo-chevron">›</span>
+      </div>
+      <div class="exo-chapter-body">
+
+        <div class="lecon-block">
+          <div class="lecon-block-title">Règles de dérivation</div>
+          <div class="lecon-formulas">
+            <div class="lecon-formula-row"><span class="lecon-formula-name">(k)' =</span><span class="lecon-formula-val">0 &nbsp;(constante)</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">(xⁿ)' =</span><span class="lecon-formula-val">n × xⁿ⁻¹</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">(ax + b)' =</span><span class="lecon-formula-val">a</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">(u + v)' =</span><span class="lecon-formula-val">u' + v'</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">(k × u)' =</span><span class="lecon-formula-val">k × u'</span></div>
+          </div>
+        </div>
+
+        <div class="lecon-block">
+          <div class="lecon-block-title">Tableau de variations</div>
+          <div class="lecon-formulas">
+            <div class="lecon-formula-row"><span class="lecon-formula-name">f'(x) &gt; 0</span><span class="lecon-formula-val">f croissante ↗ sur cet intervalle</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">f'(x) &lt; 0</span><span class="lecon-formula-val">f décroissante ↘ sur cet intervalle</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">f'(x) = 0</span><span class="lecon-formula-val">extremum potentiel → vérifier le changement de signe</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">+→− en x₀</span><span class="lecon-formula-val">maximum local en x₀</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">−→+ en x₀</span><span class="lecon-formula-val">minimum local en x₀</span></div>
+          </div>
+        </div>
+
+        <div class="lecon-block">
+          <div class="lecon-block-title">Coûts en économie</div>
+          <div class="lecon-formulas">
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Coût marginal</span><span class="lecon-formula-val">Cm(q) = CT'(q)</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Coût moyen</span><span class="lecon-formula-val">CM(q) = CT(q) / q</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Min du CM</span><span class="lecon-formula-val">CM'(q) = 0 → q* &nbsp;|&nbsp; CM''(q*) &gt; 0 confirme le minimum</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Propriété clé</span><span class="lecon-formula-val">Au minimum de CM : CM(q*) = Cm(q*)</span></div>
+          </div>
+        </div>
+
+        <div class="lecon-block">
+          <div class="lecon-block-title">Optimisation du profit</div>
+          <div class="lecon-formulas">
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Profit</span><span class="lecon-formula-val">π(q) = RT(q) − CT(q)</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Recette marginale</span><span class="lecon-formula-val">Rm(q) = RT'(q)</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Coût marginal</span><span class="lecon-formula-val">Cm(q) = CT'(q)</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Condition optimum</span><span class="lecon-formula-val">Rm(q) = Cm(q) &nbsp;⟹ profit maximum</span></div>
+            <div class="lecon-formula-row"><span class="lecon-formula-name">Résolution</span><span class="lecon-formula-val">π'(q) = 0 ⟺ Rm − Cm = 0 → résoudre pour q</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
   <!-- EXERCICES panel (Math TDs) -->
@@ -1503,6 +1714,67 @@ const ALL_QUESTIONS = [
     choices:["La variation absolue de Q quand P augmente de 1 €","La variation relative de Q quand P varie de 1 %","Le rapport entre le prix et la quantité","La sensibilité du profit au prix"],
     a:"La variation relative de Q quand P varie de 1 %",
     exp:"e(Q/P) = (ΔQ/Q) / (ΔP/P) = Q'(P) × P/Q. En général e < 0 (loi de la demande). Si |e| > 1 : demande élastique (sensible au prix) ; si |e| < 1 : demande inélastique. Utile pour fixer la politique tarifaire." },
+
+  // ── MATHS — Principes & formules (12 questions) ──
+  { subject:'math', q:"Quelle formule relie le CM au taux d'évolution t ?",
+    choices:["CM = t − 1","CM = 1 + t","CM = 1 / t","CM = t × 100"],
+    a:"CM = 1 + t",
+    exp:"CM = 1 + t. Exemples : +15 % → CM = 1,15 ; −20 % → CM = 0,80 ; stabilité → CM = 1. Pour retrouver t : t = CM − 1." },
+
+  { subject:'math', q:"Une hausse de +5 % suivie d'une hausse de +8 % donne un taux global de :",
+    choices:["+13 %","+13,4 %","≈ +13,4 % (CM₁ × CM₂ = 1,05 × 1,08)","Impossible à calculer"],
+    a:"≈ +13,4 % (CM₁ × CM₂ = 1,05 × 1,08)",
+    exp:"CM_global = 1,05 × 1,08 = 1,134 → t_global = +13,4 %. Les taux ne s'additionnent pas : +5 % puis +8 % ≠ +13 %." },
+
+  { subject:'math', q:"Comment calcule-t-on le taux réciproque d'une hausse de +20 % ?",
+    choices:["−20 %","1 / 1,20 − 1 ≈ −16,67 %","−1 / 0,20 ≈ −5","1 / 0,20 − 1 = 4"],
+    a:"1 / 1,20 − 1 ≈ −16,67 %",
+    exp:"CM_réciproque = 1 / CM_global = 1 / 1,20 ≈ 0,8333. t_réc = 0,8333 − 1 ≈ −16,67 %. La baisse nécessaire pour annuler une hausse de +20 % n'est pas −20 % !" },
+
+  { subject:'math', q:"Sur 4 ans, un CA est passé de 100 à 146,41. Quel est le taux annuel moyen ?",
+    choices:["+11,6 %","+(46,41/4) = +11,6 %","+10 % (CM_moyen = 1,4641^(1/4) = 1,10)","+(46,41 ÷ 4) %"],
+    a:"+10 % (CM_moyen = 1,4641^(1/4) = 1,10)",
+    exp:"CM_global = 146,41 / 100 = 1,4641. CM_moyen = 1,4641^(1/4) = 1,10 → t_moyen = +10 %. Ici c'est la moyenne géométrique, pas arithmétique." },
+
+  { subject:'math', q:"Formule du terme général d'une suite arithmétique de premier terme u₀ et de raison r ?",
+    choices:["uₙ = u₀ × rⁿ","uₙ = u₀ + n × r","uₙ = u₁ + (n−1) × r","uₙ = n / r + u₀"],
+    a:"uₙ = u₀ + n × r",
+    exp:"Suite arithmétique : on ajoute r à chaque terme. uₙ = u₀ + n×r. La raison r = uₙ₊₁ − uₙ est constante. Exemple : u₀ = 5, r = 3 → u₄ = 5 + 4×3 = 17." },
+
+  { subject:'math', q:"Formule de la somme des n premiers termes d'une suite arithmétique ?",
+    choices:["Sₙ = u₀ × (1 − rⁿ) / (1 − r)","Sₙ = n × (u₀ + uₙ₋₁) / 2","Sₙ = (u₀ + uₙ) / n","Sₙ = n × u₀ + r"],
+    a:"Sₙ = n × (u₀ + uₙ₋₁) / 2",
+    exp:"Sₙ = n × (premier terme + dernier terme) / 2. C'est la moyenne du premier et dernier terme × nombre de termes. Utile pour calculer un total cumulé sur n périodes." },
+
+  { subject:'math', q:"Formule du terme général d'une suite géométrique de premier terme v₀ et de raison q ?",
+    choices:["vₙ = v₀ + n × q","vₙ = v₀ × qⁿ","vₙ = v₁ × qⁿ⁻¹","vₙ = q^(v₀×n)"],
+    a:"vₙ = v₀ × qⁿ",
+    exp:"Suite géométrique : on multiplie par q à chaque terme. vₙ = v₀ × qⁿ. La raison q = vₙ₊₁ / vₙ est constante. Lien direct : une évolution de +x %/an donne q = 1 + x %." },
+
+  { subject:'math', q:"Formule de la somme des n premiers termes d'une suite géométrique (q ≠ 1) ?",
+    choices:["Sₙ = v₀ × n × q","Sₙ = v₀ × (1 − qⁿ) / (1 − q)","Sₙ = v₀ / (1 − q)","Sₙ = (v₀ × qⁿ) − v₀"],
+    a:"Sₙ = v₀ × (1 − qⁿ) / (1 − q)",
+    exp:"Sₙ = v₀ × (1 − qⁿ) / (1 − q) avec q ≠ 1. Si q = 1 : Sₙ = n × v₀. Cette formule cumule les n termes v₀, v₁, …, vₙ₋₁." },
+
+  { subject:'math', q:"Que vaut la dérivée de f(x) = 3x⁴ − 5x² + 2x − 7 ?",
+    choices:["12x³ − 10x + 2","12x⁴ − 10x² + 2","3x³ − 5x + 2","4x³ − 2x + 2"],
+    a:"12x³ − 10x + 2",
+    exp:"(xⁿ)' = n×xⁿ⁻¹ : (3x⁴)' = 12x³, (5x²)' = 10x, (2x)' = 2, (7)' = 0. Résultat : 12x³ − 10x + 2." },
+
+  { subject:'math', q:"Pour trouver les extrema de f, on résout f'(x) = 0. Comment confirme-t-on un maximum ?",
+    choices:["f'(x₀) > 0","f''(x₀) > 0","f' change de signe + → − en x₀","f(x₀) est la plus grande valeur du tableau"],
+    a:"f' change de signe + → − en x₀",
+    exp:"Si f'(x₀) = 0 et f' passe de positif à négatif en x₀ → maximum local. Si f' passe de négatif à positif → minimum local. f''(x₀) < 0 confirme aussi un maximum (second critère)." },
+
+  { subject:'math', q:"Quelle est la condition d'optimum (profit maximum) pour une entreprise ?",
+    choices:["CT(q) = RT(q)","CM(q) = 0","Rm(q) = Cm(q)","π(q) = 0"],
+    a:"Rm(q) = Cm(q)",
+    exp:"π = RT − CT. π'(q) = 0 ⟺ RT'(q) − CT'(q) = 0 ⟺ Rm(q) = Cm(q). On résout Rm = Cm pour trouver q*, puis on vérifie que c'est un maximum (π'' < 0)." },
+
+  { subject:'math', q:"Coût moyen CM(q) et coût marginal Cm(q) : quelles sont leurs formules ?",
+    choices:["CM = CT'(q) et Cm = CT(q)/q","CM = CT(q)/q et Cm = CT'(q)","CM = CT(q)×q et Cm = CT(q)/q","CM = Rm(q) et Cm = CT'(q)"],
+    a:"CM = CT(q)/q et Cm = CT'(q)",
+    exp:"Coût moyen CM(q) = CT(q)/q (coût par unité). Coût marginal Cm(q) = CT'(q) (coût de la dernière unité). Propriété clé : au minimum du CM, CM(q*) = Cm(q*)." },
 ];
 
 /* ── STATE ── */
@@ -1561,7 +1833,7 @@ function setMode(m) {
   document.getElementById('start-btn').textContent = isExo ? 'Voir les exercices →' : 'Commencer →';
   document.getElementById('start-sub').textContent = isExo
     ? 'Exercices · méthodes · TDs de maths'
-    : '51 questions · 4 matières';
+    : '63 questions · 4 matières';
 }
 
 /* ── SHUFFLE ── */
@@ -1802,15 +2074,18 @@ function goHome()     { showScreen('screen-start'); }
 
 /* ── EXERCISES ── */
 function switchExoTab(tab) {
-  const isExos = tab === 'exos';
-  document.getElementById('panel-methodes').style.display = isExos ? 'none' : 'block';
-  document.getElementById('panel-exos').style.display = isExos ? 'block' : 'none';
-  document.getElementById('tab-methodes').classList.toggle('active', !isExos);
-  document.getElementById('tab-exos').classList.toggle('active', isExos);
+  ['methodes', 'lecon', 'exos'].forEach(t => {
+    document.getElementById('panel-' + t).style.display = tab === t ? 'block' : 'none';
+    document.getElementById('tab-' + t).classList.toggle('active', tab === t);
+  });
 }
 
 function toggleChapter(id) {
   document.getElementById('chap-' + id).classList.toggle('open');
+}
+
+function toggleLecon(id) {
+  document.getElementById('lecon-' + id).classList.toggle('open');
 }
 
 function toggleMethod(id) {
