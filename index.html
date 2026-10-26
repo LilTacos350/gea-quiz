@@ -194,7 +194,7 @@ body {
 .subject-card-label { font-size: 0.8rem; font-weight: 600; }
 .subject-card-count { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
 .subject-card-coef {
-  font-size: 0.68rem; font-weight: 700; margin-top: 5px;
+  font-size: 0.72rem; font-weight: 700; margin-top: 5px;
   padding: 2px 7px; border-radius: 99px;
   display: inline-block;
 }
@@ -736,7 +736,13 @@ body {
 .exo-correction.show { display: block; }
 .exo-correction-label {
   font-weight: 700; font-size: 0.75rem; text-transform: uppercase;
-  letter-spacing: 0.06em; color: var(--ok); margin-bottom: 8px;
+  letter-spacing: 0.06em; color: var(--ok); margin-bottom: 6px;
+}
+.exo-method-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.78rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 6px; margin-bottom: 10px;
+  background: var(--math-bg); color: var(--math); border: 1px solid var(--math-border);
 }
 </style>
 
@@ -1047,6 +1053,7 @@ body {
           <div class="exo-enonce">Un commerçant revend un article <strong>800 € HT</strong>. Il réalise une marge commerciale de <strong>20 % sur le prix de vente HT</strong>. La TVA est de 20 %.<br><br>1. Calculer le montant de la marge (€).<br>2. Calculer le prix d'achat HT.<br>3. Calculer le prix de vente TTC.</div>
           <div class="exo-correction">
             <div class="exo-correction-label">✓ Correction</div>
+            <div class="exo-method-tag">📐 Méthode : Marge sur PV — Marge = T% × PV &nbsp;|&nbsp; PA = PV − Marge &nbsp;|&nbsp; PV TTC = PV HT × (1 + TVA)</div>
             1. Marge = 20 % × 800 = <strong>160 €</strong><br>
             2. PA HT = 800 − 160 = <strong>640 €</strong><br>
             3. PV TTC = 800 × 1,20 = <strong>960 €</strong>
@@ -1061,6 +1068,7 @@ body {
           <div class="exo-enonce">Un article a subi deux hausses successives de <strong>2 %</strong> puis <strong>2,5 %</strong>. Son prix final est <strong>543,66 €</strong>.<br><br>1. Calculer le CM global et le taux d'évolution global.<br>2. Retrouver le prix initial.<br>3. Calculer le taux d'évolution réciproque.</div>
           <div class="exo-correction">
             <div class="exo-correction-label">✓ Correction</div>
+            <div class="exo-method-tag">📐 Méthode : Évolutions successives — CM_global = CM₁ × CM₂ &nbsp;|&nbsp; T_global = CM_global − 1 &nbsp;|&nbsp; CM_réciproque = 1 / CM_global</div>
             1. CM = 1,02 × 1,025 = <strong>1,0455</strong> → taux global = <strong>+4,55 %</strong><br>
             2. Prix initial = 543,66 ÷ 1,0455 = <strong>520,00 €</strong><br>
             3. CM réciproque = 1 ÷ 1,0455 ≈ 0,9565 → taux réciproque ≈ <strong>−4,35 %</strong>
@@ -1075,6 +1083,7 @@ body {
           <div class="exo-enonce">Le CA d'une entreprise est passé de <strong>300 000 €</strong> en 2015 à <strong>514 000 €</strong> en 2020.<br><br>1. Calculer le taux d'évolution global (2015 → 2020).<br>2. Calculer le taux d'évolution annuel moyen.<br>3. Estimer le CA en 2021 si la tendance se maintient.</div>
           <div class="exo-correction">
             <div class="exo-correction-label">✓ Correction</div>
+            <div class="exo-method-tag">📐 Méthode : Taux moyen annuel — CM_global = VF / VI &nbsp;|&nbsp; CM_moyen = CM_global^(1/n) &nbsp;|&nbsp; Projection : VF × CM_moyen</div>
             1. CM = 514 000 / 300 000 ≈ 1,7133 → taux global ≈ <strong>+71,33 %</strong><br>
             2. CM annuel = 1,7133^(1/5) ≈ 1,1138 → taux moyen ≈ <strong>+11,38 %/an</strong><br>
             3. CA 2021 ≈ 514 000 × 1,1138 ≈ <strong>572 700 €</strong>
@@ -1106,6 +1115,7 @@ body {
           <div class="exo-enonce">Une ville compte <strong>15 000 habitants</strong> en 2010. Sa population augmente de <strong>600 habitants par an</strong>.<br><br>1. Donner l'expression de u_n (population n années après 2010).<br>2. Calculer la population en 2025.<br>3. En quelle année la population dépassera-t-elle 24 000 habitants ?</div>
           <div class="exo-correction">
             <div class="exo-correction-label">✓ Correction</div>
+            <div class="exo-method-tag">📐 Méthode : Suite arithmétique — uₙ = u₀ + n×r &nbsp;|&nbsp; résoudre uₙ &gt; seuil ⟹ n &gt; (seuil − u₀) / r</div>
             1. u_n = 15 000 + 600n (suite arith., r = 600)<br>
             2. n = 15 : u₁₅ = 15 000 + 9 000 = <strong>24 000 hab</strong><br>
             3. 15 000 + 600n &gt; 24 000 ⟹ n &gt; 15 → à partir de n = 16, soit en <strong>2026</strong>
@@ -1120,6 +1130,7 @@ body {
           <div class="exo-enonce">Une usine produit <strong>100 000 unités</strong> en 2015. Sa production diminue de <strong>3 % par an</strong>.<br><br>1. Donner l'expression de v_n (production n années après 2015).<br>2. Calculer la production en 2020.<br>3. Calculer la production totale de 2015 à 2019 (5 premières années).</div>
           <div class="exo-correction">
             <div class="exo-correction-label">✓ Correction</div>
+            <div class="exo-method-tag">📐 Méthode : Suite géométrique — vₙ = v₀ × qⁿ &nbsp;|&nbsp; Sₙ = v₀ × (1 − qⁿ) / (1 − q)</div>
             1. v_n = 100 000 × 0,97ⁿ (suite géo., q = 0,97)<br>
             2. n = 5 : v₅ = 100 000 × 0,97⁵ ≈ <strong>85 873 unités</strong><br>
             3. S₅ = 100 000 × (1 − 0,97⁵) / 0,03 ≈ <strong>471 000 unités</strong>
@@ -1134,6 +1145,7 @@ body {
           <div class="exo-enonce">Une entreprise peut louer une machine avec 2 contrats :<br>• <strong>Contrat A</strong> : loyer de 10 000 € la 1re année, <strong>+500 €/an</strong> (arith.)<br>• <strong>Contrat B</strong> : loyer de 10 000 € la 1re année, <strong>+4 %/an</strong> (géo.)<br><br>1. Exprimer le loyer de l'année n pour chaque contrat (n = 0 = 1re année).<br>2. Calculer le coût total sur 10 ans pour chaque contrat.<br>3. Quel contrat est le plus avantageux sur 10 ans ?</div>
           <div class="exo-correction">
             <div class="exo-correction-label">✓ Correction</div>
+            <div class="exo-method-tag">📐 Méthode : Comparaison arith. vs géo. — S_arith = n×u₀ + r×n(n−1)/2 &nbsp;|&nbsp; S_géo = u₀×(qⁿ−1)/(q−1)</div>
             1. A: aₙ = 10 000 + 500n &nbsp;|&nbsp; B: bₙ = 10 000 × 1,04ⁿ<br>
             2. S_A = 10 × 10 000 + 500 × 45 = <strong>122 500 €</strong><br>
             &nbsp;&nbsp;&nbsp;S_B = 10 000 × (1,04¹⁰ − 1) / 0,04 ≈ <strong>120 061 €</strong><br>
@@ -1167,6 +1179,7 @@ body {
           <div class="exo-enonce">Soit <strong>f(x) = x⁵ − 20x + 3</strong>.<br><br>1. Calculer f'(x).<br>2. Résoudre f'(x) = 0.<br>3. Dresser le tableau de variations et déterminer les extrema locaux.</div>
           <div class="exo-correction">
             <div class="exo-correction-label">✓ Correction</div>
+            <div class="exo-method-tag">📐 Méthode : Dérivation + tableau de variations — f'(x) = 0 → points critiques &nbsp;|&nbsp; signe de f' → croissance/décroissance → extrema</div>
             1. f'(x) = <strong>5x⁴ − 20</strong><br>
             2. 5x⁴ − 20 = 0 ⟹ x⁴ = 4 ⟹ x = <strong>±√2 ≈ ±1,41</strong><br>
             3. f croissante sur ]−∞ ; −√2[ et ]√2 ; +∞[, décroissante sur ]−√2 ; √2[<br>
@@ -1183,6 +1196,7 @@ body {
           <div class="exo-enonce"><strong>CT(q) = 2q³ − q² + 4q</strong> (en k€, q en milliers d'unités).<br><br>1. Calculer le coût marginal Cm(q) = CT'(q).<br>2. Exprimer le coût moyen CM(q) = CT(q)/q.<br>3. Trouver la quantité q qui minimise CM(q).</div>
           <div class="exo-correction">
             <div class="exo-correction-label">✓ Correction</div>
+            <div class="exo-method-tag">📐 Méthode : Minimisation du coût moyen — CM(q) = CT(q)/q &nbsp;|&nbsp; CM'(q) = 0 → q* &nbsp;|&nbsp; CM''(q*) &gt; 0 confirme le minimum</div>
             1. Cm(q) = <strong>6q² − 2q + 4</strong><br>
             2. CM(q) = <strong>2q² − q + 4</strong><br>
             3. CM'(q) = 4q − 1 = 0 ⟹ q = <strong>0,25 k unités</strong><br>
@@ -1198,6 +1212,7 @@ body {
           <div class="exo-enonce">Demande : <strong>q − 102 + 2p = 0</strong>. Coût moyen : <strong>CM(q) = (4/3)q² − 8q + 57 + 2/q</strong>.<br><br>1. Exprimer p en fonction de q.<br>2. Calculer RT(q) et la recette marginale Rm(q).<br>3. Calculer CT(q) et le coût marginal Cm(q).<br>4. Trouver la quantité qui maximise le profit (Rm = Cm).</div>
           <div class="exo-correction">
             <div class="exo-correction-label">✓ Correction</div>
+            <div class="exo-method-tag">📐 Méthode : Maximisation du profit — π = RT − CT &nbsp;|&nbsp; Rm = RT'(q) &nbsp;|&nbsp; Cm = CT'(q) &nbsp;|&nbsp; condition optimale : Rm = Cm</div>
             1. p = (102 − q) / 2 = <strong>51 − q/2</strong><br>
             2. RT = 51q − q²/2 &nbsp;|&nbsp; Rm = <strong>51 − q</strong><br>
             3. CT = (4/3)q³ − 8q² + 57q + 2 &nbsp;|&nbsp; Cm = <strong>4q² − 16q + 57</strong><br>
