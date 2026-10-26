@@ -203,6 +203,13 @@ body {
 .subject-card-coef.comm  { background: var(--comm-bg);  color: var(--comm);  }
 .subject-card-coef.math  { background: var(--math-bg);  color: var(--math);  }
 
+/* subject card dimmed when exercices mode active */
+#subjects-card.mode-exo-active {
+  opacity: 0.45;
+  pointer-events: none;
+  user-select: none;
+}
+
 /* all-subjects chip */
 .all-chip {
   display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -751,10 +758,10 @@ body {
   <div class="start-header">
     <div class="start-eyebrow">BUT GEA · Semestre 1</div>
     <h1 class="start-title syne">Quiz de<br>révision</h1>
-    <p class="start-sub">51 questions · 4 matières</p>
+    <p class="start-sub" id="start-sub">51 questions · 4 matières</p>
   </div>
 
-  <div class="card-surface">
+  <div class="card-surface" id="subjects-card">
     <div class="mode-label">Choisir les matières</div>
     <div id="all-chip" class="all-chip selected-all" onclick="toggleSubject('all')">
       <span class="all-chip-dot"></span>
@@ -803,7 +810,7 @@ body {
     </div>
   </div>
 
-  <button class="start-btn" onclick="startQuiz()">Commencer →</button>
+  <button class="start-btn" id="start-btn" onclick="startQuiz()">Commencer →</button>
 </div>
 
 <!-- ─── QUIZ SCREEN ─── -->
@@ -890,7 +897,7 @@ body {
   <!-- Tabs -->
   <div class="exo-tabs">
     <button class="exo-tab active" id="tab-methodes" onclick="switchExoTab('methodes')">🧠 Méthodes</button>
-    <button class="exo-tab" id="tab-exos" onclick="switchExoTab('exos')">📐 Exercices maths</button>
+    <button class="exo-tab" id="tab-exos" onclick="switchExoTab('exos')">📐 Exercices TDs</button>
   </div>
 
   <!-- MÉTHODES panel -->
@@ -1548,6 +1555,13 @@ function setMode(m) {
   document.getElementById('mode-qcm').classList.toggle('active', m === 'qcm');
   document.getElementById('mode-fc').classList.toggle('active', m === 'flashcard');
   document.getElementById('mode-exo').classList.toggle('active', m === 'exercices');
+
+  const isExo = m === 'exercices';
+  document.getElementById('subjects-card').classList.toggle('mode-exo-active', isExo);
+  document.getElementById('start-btn').textContent = isExo ? 'Voir les exercices →' : 'Commencer →';
+  document.getElementById('start-sub').textContent = isExo
+    ? 'Exercices · méthodes · TDs de maths'
+    : '51 questions · 4 matières';
 }
 
 /* ── SHUFFLE ── */
