@@ -801,7 +801,7 @@ body {
   <div class="start-header">
     <div class="start-eyebrow">BUT GEA · Semestre 1</div>
     <h1 class="start-title syne">Quiz de<br>révision</h1>
-    <p class="start-sub" id="start-sub">63 questions · 4 matières</p>
+    <p class="start-sub" id="start-sub">75 questions · 4 matières</p>
   </div>
 
   <div class="card-surface" id="subjects-card">
@@ -826,7 +826,7 @@ body {
       <div id="card-comm" class="subject-card" onclick="toggleSubject('comm')">
         <div class="subject-card-icon">💬</div>
         <div class="subject-card-label">Communication</div>
-        <div class="subject-card-count">11 questions</div>
+        <div class="subject-card-count">23 questions</div>
         <div class="subject-card-coef comm">coef 15</div>
       </div>
       <div id="card-math" class="subject-card" onclick="toggleSubject('math')">
@@ -1654,6 +1654,67 @@ const ALL_QUESTIONS = [
     a:"L'école de Palo Alto",
     exp:"L'école de Palo Alto introduit le feed-back comme mécanisme de régulation dans la communication : la réponse du récepteur influence l'émetteur, transformant la communication d'un processus linéaire en un processus circulaire et interactionnel." },
 
+  // ── PSYCHOLOGIE SOCIALE (12) ──
+  { subject:'comm', q:"Qui a mené les expériences à la Western Electric Cie (1924-1932) sur les facteurs de performance au travail ?",
+    choices:["Kurt Lewin et ses collaborateurs","E. Mayo et ses collaborateurs","Norman Triplett","Paul Watzlawick"],
+    a:"E. Mayo et ses collaborateurs",
+    exp:"Elton Mayo mena 4 phases d'expériences à la Western Electric Cie (Chicago, 29 000 salariés) : 1. Éclairage (1924-1927), 2. Relay Assembly Test Room (1927-1932), 3. Programme d'entretiens (1928-1930), 4. Bank Wiring Observation Room (1931-1932)." },
+
+  { subject:'comm', q:"Quel est le résultat principal de la phase 1 (éclairage) des expériences de Mayo ?",
+    choices:["L'éclairage est le facteur principal de productivité","L'éclairage ne permet pas d'expliquer les résultats — le groupe primaire est facteur de performance","La lumière artificielle réduit la productivité","Les ouvriers préfèrent la lumière naturelle"],
+    a:"L'éclairage ne permet pas d'expliquer les résultats — le groupe primaire est facteur de performance",
+    exp:"Hypothèse de départ : 'Si l'éclairage est amélioré, le taux de rendement augmentera.' Résultat : le taux de rendement augmente dans le groupe test ET dans le groupe contrôle. L'éclairage ne suffit pas à expliquer les résultats → le groupe primaire est facteur de performance, indépendamment des conditions matérielles." },
+
+  { subject:'comm', q:"Qu'oppose le modèle taylorien à l'École des Ressources Humaines (Mayo) ?",
+    choices:["Travail individuel vs travail en équipe","Tâches répétitives + motivations économiques vs facteur humain + motivations sociales","Production à la chaîne vs production artisanale","Hiérarchie stricte vs anarchie"],
+    a:"Tâches répétitives + motivations économiques vs facteur humain + motivations sociales",
+    exp:"Taylorien : tâches simples et répétitives, motivations économiques (salaire), pas de coopération, système hiérarchisé. École RH : centrée sur le facteur humain, motivations sociales (participation aux décisions), coopération et communication, système moins hiérarchisé et plus participatif." },
+
+  { subject:'comm', q:"L'expérience de Norman Triplett (1897) sur 40 enfants a mis en évidence quel phénomène ?",
+    choices:["L'effet de paresse sociale","L'effet de facilitation sociale","L'équilibre quasi stationnaire","L'effet de conformisme"],
+    a:"L'effet de facilitation sociale",
+    exp:"Triplett : seul = 39,39 secondes ; en présence d'un autre participant (CO-ACTION) = 37,42 secondes. → EFFET DE FACILITATION SOCIALE : la présence d'autrui améliore les performances sur des tâches simples. Résultat statistiquement significatif." },
+
+  { subject:'comm', q:"Qu'est-ce que l'effet de facilitation sociale ?",
+    choices:["Un phénomène où les individus travaillent moins quand ils sont en groupe","Un phénomène où la présence d'autrui augmente les performances sur des tâches simples ou routinières","La tendance à imiter le comportement des membres du groupe","Le fait que les groupes prennent de meilleures décisions que les individus"],
+    a:"Un phénomène où la présence d'autrui augmente les performances sur des tâches simples ou routinières",
+    exp:"Définition (Augustinova et Oberlé, 2013) : 'Phénomène selon lequel la présence d'autrui (réelle, à distance ou même seulement imaginée) lors de l'accomplissement d'une tâche simple ou routinière, augmente les performances dans la réalisation de cette tâche.' Deux formes : effet de co-action et effet d'audience." },
+
+  { subject:'comm', q:"Quels sont les deux effets opposés que l'influence sociale peut avoir sur les comportements individuels ?",
+    choices:["Effet de conformisme et effet de déviance","Effet de facilitation sociale et effet de paresse sociale","Effet d'audience et effet de co-action","Effet d'imitation et effet de résistance"],
+    a:"Effet de facilitation sociale et effet de paresse sociale",
+    exp:"Ces deux effets témoignent de l'influence du groupe sur le(s) comportement(s) d'un ou plusieurs individus : la facilitation sociale (amélioration des performances) et la paresse sociale (diminution de l'effort individuel en groupe)." },
+
+  { subject:'comm', q:"Selon Kurt Lewin (1935, 1947), qu'est-ce que l'équilibre quasi stationnaire ?",
+    choices:["Un état stable et définitif du groupe qui ne change jamais","Un état du groupe traduisant un accord de tous ses membres, durant tant que la norme créée permet au groupe de fonctionner","L'état d'un groupe en conflit permanent","L'équilibre entre leaders et suiveurs dans un groupe"],
+    a:"Un état du groupe traduisant un accord de tous ses membres, durant tant que la norme créée permet au groupe de fonctionner",
+    exp:"L'équilibre quasi stationnaire est l'état du groupe qui traduit un accord de tous ses membres et qui durera tant que la norme créée (au travers d'une prise de décision collective) permettra au groupe de fonctionner et de s'adapter à son environnement social. Décision collective = création d'une norme de groupe." },
+
+  { subject:'comm', q:"Selon Lewin, le groupe primaire constitue une structure sociale qui se caractérise par :",
+    choices:["Des objectifs, des ressources et des stratégies","Des statuts, des rôles et des normes","Des leaders, des suiveurs et des marginaux","Des règles, des sanctions et des récompenses"],
+    a:"Des statuts, des rôles et des normes",
+    exp:"Le groupe primaire constitue une STRUCTURE SOCIALE qui se caractérise par des STATUTS (position dans le groupe), DES RÔLES (fonctions attendues) et des NORMES (règles de comportement partagées). Ces trois éléments structurent les interactions au sein du groupe." },
+
+  { subject:'comm', q:"Selon Lewin, l'interdépendance au sein d'un groupe primaire peut être de trois types. Lesquels ?",
+    choices:["Physique, émotionnelle, intellectuelle","Cognitive (opinion commune), instrumentale (but commun), sociale (sort commun)","Formelle, informelle, institutionnelle","Verticale, horizontale, transversale"],
+    a:"Cognitive (opinion commune), instrumentale (but commun), sociale (sort commun)",
+    exp:"INTERDÉPENDANCE COGNITIVE : opinion commune partagée. INSTRUMENTALE : but commun à atteindre ensemble. SOCIALE : sort ou destin commun. Ces trois formes d'interdépendance renforcent la cohésion et l'influence mutuelle au sein du groupe primaire." },
+
+  { subject:'comm', q:"Dans les expériences de Lewin sur le changement alimentaire, quel format produisait plus de changement comportemental ?",
+    choices:["La conférence (écoute passive)","La réunion-discussion (dynamique forte)","L'entretien individuel","La lecture de brochures informatives"],
+    a:"La réunion-discussion (dynamique forte)",
+    exp:"Expérience 1 (abats) : 4% (conférence) vs 30% (réunion). La réunion crée une prise de décision collective → norme de groupe → adoption de comportements conformes. La conférence reste au niveau individuel : peu d'interactions, écoute passive, norme individuelle seulement." },
+
+  { subject:'comm', q:"Qu'est-ce qui distingue une situation 'peu dynamique' d'une situation 'très dynamique' selon Lewin ?",
+    choices:["Le nombre de participants","La présence d'un leader autoritaire","Peu dynamique : décision individuelle / Très dynamique : décision collective et création d'une norme de groupe","La durée de la réunion"],
+    a:"Peu dynamique : décision individuelle / Très dynamique : décision collective et création d'une norme de groupe",
+    exp:"Peu dynamique (conférence) : peu d'interactions, écoute passive, prise de décision individuelle → aucune ou peu d'influence sociale. Très dynamique (réunion) : beaucoup d'interactions, les participants connaissent l'avis des autres, écoute active, prise de décision collective, création d'une norme de groupe → influence mutuelle." },
+
+  { subject:'comm', q:"Selon Lewin (1935, 1947), le groupe primaire ou restreint est en perpétuel mouvement. Pourquoi ?",
+    choices:["Parce que ses membres changent constamment","Parce qu'il change ses modalités de fonctionnement pour s'adapter à son environnement et continuer d'exister","Parce que ses objectifs évoluent chaque année","Parce que la hiérarchie se modifie régulièrement"],
+    a:"Parce qu'il change ses modalités de fonctionnement pour s'adapter à son environnement et continuer d'exister",
+    exp:"Le groupe primaire ou restreint est en PERPÉTUEL MOUVEMENT. Le groupe change ses modalités de fonctionnement chaque fois que c'est nécessaire pour s'adapter à son environnement et continuer d'exister. C'est ce caractère dynamique (et non statique) qui le définit." },
+
   // ── OUTILS MATHÉMATIQUES (15) ──
   // — Partie 1 : Proportions & taux d'évolution —
   { subject:'math', q:"Un prix passe de 80 € à 100 €. Quel est le taux d'évolution T ?",
@@ -1851,7 +1912,7 @@ function setMode(m) {
   document.getElementById('start-btn').textContent = isExo ? 'Voir les exercices →' : 'Commencer →';
   document.getElementById('start-sub').textContent = isExo
     ? 'Exercices · méthodes · TDs de maths'
-    : '63 questions · 4 matières';
+    : '75 questions · 4 matières';
 }
 
 /* ── SHUFFLE ── */
